@@ -1,0 +1,43 @@
+.tab {width: 100%; height: 100%;}
+
+.tabPage_opcion .tabPage_normal,
+				.tabPage_seleccionado,
+				.tabPage_over,
+				.tabPage_tabla {position: relative; float: left; white-space: nowrap;}
+
+.tabPage_contenido {width:100%; height:100%; display:none;}
+
+.tabPage_fondo {background-color: #FFFFFF;}
+.tabPage_borde {background-color: #949C9C;}
+
+.tabPage_normal {cursor: pointer;}
+.tabPage_normal .tabPage_fondo_arriba {background-color: #F7F7EF;}
+.tabPage_normal .tabPage_fondo_centro {background-color: #F9FAFB; padding-left: 5px; padding-right: 5px;}
+.tabPage_normal .tabPage_fondo_abajo {background-color: #F9FAFB;}
+.tabPage_normal .tabPage_borde_arriba {background-color: #949C9C;}
+.tabPage_normal .tabPage_borde_esquina_1 {background-color: #D6D6D6;}
+.tabPage_normal .tabPage_borde_esquina_2 {background-color: #A5ADAD;}
+
+.tabPage_over {cursor: pointer;}
+.tabPage_over .tabPage_fondo_arriba {background-color: #FFC639;}
+.tabPage_over .tabPage_fondo_centro {background-color: #F7F7EF; padding-left: 5px; padding-right: 5px;}
+.tabPage_over .tabPage_fondo_abajo {background-color: #F7F7EF;}
+.tabPage_over .tabPage_borde_arriba {background-color: #E78C29;}
+.tabPage_over .tabPage_borde_esquina_1 {background-color: #E7C68C;}
+.tabPage_over .tabPage_borde_esquina_2 {background-color: #EF9C31;}
+
+.tabPage_seleccionado {cursor: default;}
+.tabPage_seleccionado .tabPage_fondo_arriba {background-color: #FFC639;}
+.tabPage_seleccionado .tabPage_fondo_centro {background-color: #FFFFFF; padding-left: 5px; padding-right: 5px;}
+.tabPage_seleccionado .tabPage_fondo_abajo {background-color: #FFFFFF;}
+.tabPage_seleccionado .tabPage_borde_arriba {background-color: #E78C29;}
+.tabPage_seleccionado .tabPage_borde_esquina_1 {background-color: #E7C68C;}
+.tabPage_seleccionado .tabPage_borde_esquina_2 {background-color: #EF9C31;}
+
+.tabPage_normalDisabled {cursor: default;}
+.tabPage_normalDisabled .tabPage_fondo_arriba {background-color: #F7F7EF;}
+.tabPage_normalDisabled .tabPage_fondo_centro {background-color: #F9FAFB; padding-left: 5px; padding-right: 5px; color: #ACA899; text-shadow: 1px 1px 0px #FFFFFF;}
+.tabPage_normalDisabled .tabPage_fondo_abajo {background-color: #F9FAFB;}
+.tabPage_normalDisabled .tabPage_borde_arriba {background-color: #949C9C;}
+.tabPage_normalDisabled .tabPage_borde_esquina_1 {background-color: #D6D6D6;}
+.tabPage_normalDisabled .tabPage_borde_esquina_2 {background-color: #A5ADAD;}

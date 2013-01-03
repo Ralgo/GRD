@@ -1,0 +1,54 @@
+<script language="javascript">
+    function crearDataGrid()
+    {
+        {
+            var objTab = document.getElementById("dg_detalle2");
+            dg = new DataGrid(objTab,
+            {
+                rowOver         : true,
+                rowSelect       : true,
+                rowMultiSelect  : false
+                //onChangeSelect : verDetalle,
+                //sortColumn	   : Array("N","S","N","N","N","N","N","N","N")
+                }
+            );
+                var d = dg.getSelectedRow;
+            }
+    }
+    window.onload = crearDataGrid;
+</script>
+
+<table id="dg_detalle2" class="tabla_datos" width="100%" border="0" cellpadding="1" cellspacing="1">
+    <thead>
+        <tr>
+            <th class="cabecera" align="center" width="2%">Id</th>
+            <th class="cabecera" align="center" width="40%">Nombre del Reporte</th>
+            <th class="cabecera" align="center" width="15%">Fecha</th>
+            <th class="cabecera" align="center" width="35%">Nombre del Solicitante</th>
+            <th class="cabecera" align="center" width="8%"></th>
+        </tr>
+     </thead>
+     <tbody>
+         <?php if(count($this->reporte)) :?>
+         <?php foreach ($this->reporte as $contenido) :?>
+         <tr>
+             <td class="contenido" align="center"><?php echo $contenido->ID_REPORTE; ?></td>
+             <td class="contenido" align="left"><?php echo $contenido->NOMBRE_REPORTE; ?></td>
+             <td class="contenido" align="center">Fecha</td>
+             
+             <!--<td class="contenido" align="center">-->
+             <?php //echo $contenido->REPORTE_FECHA; ?>
+             <!--</td>-->
+             
+             <td class="contenido" align="center"><?php echo $contenido->REPORTE_SOLICITANTE; ?></td>
+             <td class="contenido" align="center"><input type="radio" name="<?php echo $contenido->NOMBRE_REPORTE; ?>" value="<?php echo $contenido->ID_REPORTE; ?>"><br></td>
+         </tr>
+         <?php endforeach; ?>
+         <?php else :?>
+         <tr>
+             <td colspan="5">No hay Datos!</td>
+         </tr>
+         <?php endif;?>
+    </tbody>
+</table>
+

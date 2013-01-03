@@ -1,0 +1,89 @@
+.dataGrid {
+	border: 1px solid #bec8d3;
+}
+
+.dataGrid TD {
+	margin: 0px;
+	padding: 0px 4px 0px 4px;
+	white-space: nowrap;
+}
+.dataGrid TH {
+	margin: 0px;
+	padding: 0px 4px 0px 4px;
+	white-space: nowrap;
+}
+.dataGrid tbody {
+	background-color: #ebeef1;
+}
+.dataGrid .dataGrid_headerCell, .dataGrid_headerCellOver, .dataGrid_headerCellDown {	/* General rules for both standard column header and mouse on header of sortable columns */
+	cursor: pointer;
+	border-bottom: 3px solid #c5c2b2;
+	border-right: 1px solid #aca899;
+	border-left: 1px solid #ffffff;
+	background-color: #d3dbe2;
+}
+.dataGrid .dataGrid_headerCell {	/* Standard column header */
+	border-bottom: 3px solid #bec8d3;
+}
+.dataGrid .dataGrid_headerCellOver {	/* Rollover on sortable column header */
+	border-bottom: 3px solid #ffc639;
+}
+.dataGrid .dataGrid_headerCellDown {
+	border-bottom: 3px solid #ffc639;
+	background-color: #bec8d3;
+	border-left: 1px solid #aca899;
+	border-right: 1px solid #ffffff;
+}
+.dataGrid .dataGrid tbody .dataGrid_dataRollOver{	/* Rollover style on mouse over (Data) */
+	background-color: #ff0000;	/* No mouseover color in this example - specify another color if you want this */
+}
+.dataGrid .dataGrid_footerCell, .dataGrid_footerCellOver, .dataGrid_footerCellDown {	/* General rules for both standard column footer and mouse on footer of sortable columns */
+	border-bottom: 3px solid #c5c2b2;
+	border-right: 1px solid #aca899;
+	border-left: 1px solid #ffffff;
+	background-color: #d3dbe2;
+}
+.dataGrid .dataGrid_footerCell {	/* Standard column footer */
+	border-bottom: 3px solid #bec8d3;
+}
+.dataGrid .dataGrid_footerCellOver {	/* Rollover on sortable column footer */
+	border-bottom: 3px solid #ffc639;
+}
+.dataGrid .dataGrid_footerCellDown {
+	border-bottom: 3px solid #ffc639;
+	background-color: #bec8d3;
+	border-left: 1px solid #aca899;
+	border-right: 1px solid #ffffff;
+}
+.dataGrid thead TD {
+	position: relative;
+	height: 26px;
+}
+.dataGrid thead TH {
+	position: relative;
+	height: 26px;
+}
+.dataGrid tbody TD {
+	height: 26px;
+	border-top: 0px;
+	border-right: 1px solid #bec8d3;
+	border-bottom: 1px solid #bec8d3;
+	border-left: 0px;
+}
+.dataGrid tfoot TD {
+	position: relative;
+	height: 26px;
+}
+.dataGrid tfoot TH {
+	position: relative;
+	height: 26px;
+}
+.dataGrid .over TD {
+	background: #d3eefd;
+}
+.dataGrid .out TD {
+	background: #ebeef1;
+}
+.dataGrid .down TD {
+	background: #83cdf9;
+}

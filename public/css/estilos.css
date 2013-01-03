@@ -1,0 +1,237 @@
+@import "tabPage.css";
+@import "contextMenu.css";
+@import "dataGrid.css";
+
+body {
+	margin: 5px;
+	background: #ffffff;
+	font-family: Verdana, Arial, sans-serif, Helvetica;
+	font-size: 10pt;
+	color: #000080;
+/*	scrollbar-3dlight-color: #a2a2a2;
+	scrollbar-shadow-color: #a2a2a2;
+	scrollbar-face-color: #d0d0d0;
+	scrollbar-arrow-color: #ffffff;
+	scrollbar-darkshadow-color: #e5e5e5;
+	scrollbar-highlight-color: #e5e5e5;
+	scrollbar-track-color: #e5e5e5;*/
+}
+
+table {
+	font-size: 10pt;
+}
+
+form {
+	margin: 0px;
+}
+
+a:link {
+	text-decoration: none;
+	color: #000080;
+}
+a:visited {
+	text-decoration: none;
+	color: #000080;
+}
+a:active {
+	text-decoration: none;
+	color: #000080;
+}
+a:hover {
+	text-decoration: underline;
+	color:#000080;
+}
+
+.separacion {
+	width: 5px;
+	height: 5px;
+}
+
+.body_intranet {
+	margin: 5px 10px 5px 10px;
+	background: #ffffff url(/ORION/img/fondo.jpg) repeat-x;
+	color: #ffffff;
+}
+.body_intranet .texto_titulo {
+	font-size: 15pt;
+	font-weight: bold;
+}
+.body_intranet .texto_logo {
+	font-size: 9pt;
+	font-weight: bold;
+}
+.body_intranet .texto_barra {
+	font-size: 9pt;
+	font-weight: bold;
+}
+.body_intranet .texto_pie {
+	font-size: 8pt;
+	font-weight: normal;
+	color: #2d396c;
+}
+.body_intranet a:link {
+	text-decoration: none;
+	color: #ffffff;
+}
+.body_intranet a:visited {
+	text-decoration: none;
+	color: #ffffff;
+}
+.body_intranet a:active {
+	text-decoration: none;
+	color: #ffffff;
+}
+.body_intranet a:hover {
+	text-decoration: underline;
+	color:#ffffff;
+}
+.body_intranet .texto_pie select {
+	font-size: 8pt;
+	color: #2d396c;
+	border: 1px solid #b2b0b0;
+	background-color:#e4e4e4;
+}
+.body_intranet .texto_barra select {
+	font-size: 8pt;
+	color: #2d396c;
+	background-color:#ffffff;
+}
+
+.body_grilla {
+	margin: 0px;
+}
+
+.cargando {
+	background: url(/ORION/img/cargando.gif) no-repeat;
+	padding-left: 20px;
+	padding-top: 0px;
+	margin: 0px;
+	color: #005d91;
+	text-align: left;
+	font-size: 10pt;
+}
+
+.tabla_datos {
+	border: 1px solid #bec8d3;
+}
+.tabla_datos TH {
+	background: #bec8d3;
+	font-weight: normal;
+	color: #2d396c;
+	padding: 0px;
+	height: 24px;
+}
+.tabla_datos .cabecera {
+	font-weight: bold;
+}
+.tabla_datos .sub_cabecera {
+	background: #d3dbe2;
+	font-weight: normal;
+}
+.tabla_datos TD {
+	background: #ebeef1;
+	padding: 0px;
+	height: 24px;
+}
+
+.tabla_datos_datos {
+	border: 1px solid #bec8d3;
+}
+.tabla_datos_datos TH {
+	background: #bec8d3;
+	font-weight: normal;
+	color: #2d396c;
+	padding: 0px;
+	height: 24px;
+}
+.tabla_datos_datos .cabecera {
+	font-weight: bold;
+}
+.tabla_datos_datos .sub_cabecera {
+	background: #d3dbe2;
+	font-weight: normal;
+}
+.tabla_datos_datos TD {
+	background: #ffffff;
+	padding: 0px;
+	height: 24px;
+}
+.aprobadas {
+	background: #0066ff;
+	padding: 0px;
+	height: 24px;
+	color: #ffffff;
+	font-weight: bold;
+}
+.tabla_datos_noticias {
+	border: 1px solid #e6dccf;
+}
+.tabla_datos_noticias TH {
+	background: #e6dccf;
+	font-weight: normal;
+	color: #2d396c;
+	padding: 0px;
+	height: 24px;
+}
+.tabla_datos_noticias TD {
+	background: #ffffff;
+	padding: 0px;
+	height: 24px;
+}
+.sideblock {
+  border-width: 1px;
+  border-color: #000000;
+  /*border-style: solid;*/
+}
+.detalle2 { 
+	background: #ffffff; 
+	font-family: verdana; 
+	font-size: 7pt; 
+	color: #000000; 
+}
+.detalle3 { 
+	background: #ffffff; 
+	font-family: verdana; 
+	font-size: 7pt;
+	font-weight: bold; 
+	color: #000000; 
+}
+
+/*SISTEMA REMUNERACIONES - INICIO*/
+.tabla_externa {
+    text-align: center;
+    border: 1px solid #bec8d3;
+	border-collapse: collapse;
+}
+.tabla_externa tr1 {
+    background: #ebeef1;
+}
+.tabla_externa td {
+    padding: 0px;
+	padding: 0px;
+}
+.tabla_externa th {
+    padding: 0px;
+}
+.tabla_interna {
+	width: 100%;
+	height: 100%;
+	border: 1px solid #bec8d3;
+	border-collapse: separate;
+	border-spacing: 2px;
+}
+.tabla_interna td {
+    padding: 0px;
+}
+.fondo_destacado {
+	background-color: #bec8d3;
+}
+
+.miMarco {
+	border : 1px solid #FFCC66;
+    width  : 100%;
+	height: 100%;
+    min-height: 100%
+	
+}
+/*SISTEMA REMUNERACIONES - TERMINO*/
