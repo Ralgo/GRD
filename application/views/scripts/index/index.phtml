@@ -1,21 +1,36 @@
-<div>
-    <ul>
-        <li><a href="/reporte/buscar" target="vista">Abrir Reportes</a></li>
-        <li><a href="/reporte/crear" target="vista">Crear Reportes</a></li>
-        <?php 
-        $auth = Zend_Auth::getInstance();
-        if ($auth->hasIdentity()) : ?>
+<script>
+    $(document).ready(function(){
+//        $("a").mouseover(function(evento){
+//            $("#menu").css("backgroundColor","blue");
+//            //alert("hola");
+//            //evento.preventDefault();
+//        })
+//        
+//        $("a").mouseout(function(evento){
+//            $("#menu").css("backgroundColor" , "orangered");
+//        })
         
+        $("a").click(function(evento){
+            $("#vistaCarga").show(1000);
+        })
+    })
+</script>
+
+<div id="menu" style="background-color: #c7954b; padding: 2px; font-weight: bold">
+    <ul>
+        <li><a href="/reporte/buscar" target="vista" id="abrir">Abrir Reportes</a></li>
+        <li><a href="/reporte/crear" target="vista" id="Crear">Crear Reportes</a></li>
+        <?php $auth = Zend_Auth::getInstance();
+        if ($auth->hasIdentity()) : ?>
         <li>Perfil:<?php echo $auth->getIdentity(); ?> </li>
         <li><a href="/perfil/logout" target="vista">Salir del Perfil</a></li>
-        
         <?php else: ?>
-        
         <li><a href="/perfil/login" target="vista">Ingresar a Perfil</a></li>
-        
         <?php endif; ?>
-                    
     </ul>
+</div>
+
+<div id="vistaCarga" style="display: none">
 <table class="tabla_datos" width="100%" border="0" cellpadding="1" cellspacing="1">
     <tr height=300px" valign="top">
         <td height="100%" style="height:100%;" colspan="3">
