@@ -17,6 +17,7 @@
     }
     window.onload = crearDataGrid;
 </script>
+
 <div id="contenido">
 <form name="formulario" id="formulario">
 <table id="dg_detalle2" class="tabla_datos" width="100%" border="0" cellpadding="1" cellspacing="1">
@@ -29,33 +30,35 @@
             <th class="cabecera" align="center" width="5%"></th>
         </tr>
      </thead>
-     <tbody>
+     <tbody>  
          
-         <?php foreach ($this->perfil as $perfil): ?>
-         <?php if($perfil->Perfil_nombre == $this->name): ?>
-         <?php $id = $perfil->Perfil_id; ?>
-         <?php endif; ?>
-         <?php endforeach; ?>
-         
-         <?php if(count($this->contenidoBusqueda)) :?>
-         <?php foreach ($this->contenidoBusqueda as $contenido) :?>
-         <?php if($contenido->Perfil_id == $id): ?>
+         <?php 
+         if(count($this->reportes)) :
+         foreach ($this->reportes as $reporte) :
+         //Aquí hacemos el filtro para mostrar solo los reportes correspondientes al usuario
+         if($reporte->Perfil_id == $this->idUserActual):
+         ?>
 
          <tr>             
-             <td class="contenido" align="left"><a href="/reporte/usar/reporte_id/<?php echo $contenido->Reporte_id; ?>"><?php echo $contenido->Reporte_nombre; ?></a></td>
-             <td class="contenido" align="center"><?php echo $contenido->Reporte_fecha; ?></td>
-             <td class="contenido" align="center"><?php echo $contenido->Reporte_solicitante; ?></td>
-             <td class="contenido" align="center"><a href="/reporte/usar/reporte_id/<?php echo $contenido->Reporte_id; ?>">Ver</a></td>
-             <td class="contenido" align="center"><a href="/reporte/eliminar/reporte_id/<?php echo $contenido->Reporte_id; ?>">Eliminar</a></td>
+             <td class="contenido" align="left"><?php echo $reporte->Reporte_nombre; ?></td>
+             <td class="contenido" align="center"><?php echo $reporte->Reporte_fecha; ?></td>
+             <td class="contenido" align="center"><?php echo $reporte->Reporte_solicitante; ?></td>
+             <td class="contenido" align="center"><a href="<?php echo $this->url(array('controller'=>'reporte','action'=>'usar','reporte_id'=>$reporte->Reporte_id)); ?>">Ver</a></td>
+             <td class="contenido" align="center"><a href="<?php echo $this->url(array('controller'=>'reporte','action'=>'eliminar','reporte_id'=>$reporte->Reporte_id)); ?>">Eliminar</a></td>
          </tr>
          
-         <?php endif; ?>
-         <?php endforeach; ?>
-         <?php else :?>
+         <?php 
+         endif; 
+         endforeach;
+         else:
+         ?>
+         
          <tr>
              <td colspan="5" align="center">No hay Datos!</td>
          </tr>
-         <?php endif;?>         
+         
+         <?php endif;?>
+         
     </tbody>
 </table>
 </form>

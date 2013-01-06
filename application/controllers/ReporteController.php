@@ -7,8 +7,8 @@ class ReporteController extends Zend_Controller_Action
     {
         /* Initialize action controller here */
         $auth = Zend_Auth::getInstance();
-        if (! $auth->hasIdentity()) {
-            return $this->_redirect('/perfil/login');
+        if (!$auth->hasIdentity()) {
+            return $this->_helper->redirector->gotoSimple('login','perfil');
         }
     }
 
@@ -20,29 +20,33 @@ class ReporteController extends Zend_Controller_Action
     public function buscarAction()
     {
         // action body
+        //Obteniendo los datos de la sesión actual
+        //Asumo que debe haber una mejor manera de obtener el ID
+        //pero por ahora solo utilizo el username (Identidad) de Zend_Auth.
+        $auth = Zend_Auth::getInstance();
+        $username = $auth->getIdentity();
+        //Obteniendo la lista de perfiles completa y procedemos a obtener
+        //el ID del user actual.
+        $modelPerfil= new Application_Model_DbTable_Perfil();
+        $this->view->idUserActual = $modelPerfil->obtenerPerfilID($username);
         
-        $auth = Zend_Auth::getInstance();        
-        $this->view->name = $auth->getIdentity();
-        
-        $modelR = new Application_Model_DbTable_Reporte();
-        $this->view->contenidoBusqueda = $modelR->obtenerDatos();
-        
-        $modelP = new Application_Model_DbTable_Perfil();
-        $this->view->perfil = $modelP->obtenerDatos();
+        //Obteniendo la lista de reportes completa.
+        $modelReporte = new Application_Model_DbTable_Reporte();
+        $this->view->reportes = $modelReporte->obtenerTodosReportes();
         
     }
 
     public function crearAction()
     {
-        // action body
+        // action body        
         $form = new Application_Form_Contenido();
         if ($this->getRequest()->isPost() ){
             //echo "vienen datos";
             if ( $form->isValid($this->_getAllParams() ) )
             {
                 $model = new Application_Model_DbTable_Reporte();
-                $model->guardarDatos($form->getValues() );
-                return $this->_redirect('/Reporte/Buscar');
+                $model->guardarReporte($form->getValues() );
+                return $this->_helper->redirector->gotoSimple('buscar','reporte');
             }
         }
         $this->view->form = $form;
@@ -51,8 +55,8 @@ class ReporteController extends Zend_Controller_Action
     public function searchAction()
     {
         // action body
-                $reporte = new Application_Model_DbTable_GrdReporte();
-                $this->view->reporte = $reporte->obtenerDatos();
+        $reporte = new Application_Model_DbTable_GrdReporte();
+        $this->view->reporte = $reporte->obtenerDatos();
     }
 
     public function gestionarAction()
@@ -63,38 +67,22 @@ class ReporteController extends Zend_Controller_Action
     public function usarAction()
     {
         // action body
-        if (!$this->_hasParam('reporte_id')){
-            return $this->_redirect('/reporte/buscar');
-        }
-        else{
+//        if (!$this->_hasParam('reporte_id')){
+//            return $this->_redirect($this->url(array('controller'=>'reporte','action'=>'buscar')));
+//        }
+//        else{
             $model = new Application_Model_DbTable_Reporte();
-            $reporte = $model->posicionarDatos($this->_getParam('reporte_id'));
-        }
+            $reporte = $model->obtenerReporte($this->_getParam('reporte_id'));
+//        }
         
-        $this->view->contenido = $reporte;
+        $this->view->reporte = $reporte;
         
     }
 
     public function eliminarAction()
     {
         // action body
-        if (!$this->_hasParam('reporte_id')){
-            return $this->_redirect('/reporte/caca');
-        }
-        
-        $model = new Application_Model_DbTable_Reporte();
-        $id = $this->getRequest()->getPost('reporte_id');                
-        $reporte = $model->posicionarDatos($id);
-        
-        if ($this->getRequest()->isPost()){
-            $eliminar = $this->getRequest()->getPost('eliminar');
-            if ($eliminar == 'Si'){
-                $reporte->delete();
-            }
-            return $this->_redirect('/reporte/buscar');
-        }
         
     }
-
 }
 

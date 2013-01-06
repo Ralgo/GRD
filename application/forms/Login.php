@@ -21,11 +21,10 @@ class Application_Form_Login extends Zend_Form
         );
         
         $this->addElement(
-                'submit', 'Ingresar', array()
-        );
-        
+                'submit', 'Ingresar', array(
+                    'id'=>'send',
+                )
+        );        
     }
 
-
 }
-

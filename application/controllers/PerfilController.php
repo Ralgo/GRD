@@ -35,7 +35,7 @@ class PerfilController extends Zend_Controller_Action
                         $result = $auth->authenticate($authAdapter);
                         
                         if($result->isValid()){
-                            return $this->_redirect('/reporte/buscar');
+                            return $this->_helper->redirector->gotoSimple('buscar','reporte');
                             
                         }
                         else{
@@ -52,7 +52,7 @@ class PerfilController extends Zend_Controller_Action
     {
         // action body
         Zend_Auth::getInstance()->clearIdentity();
-        return $this->_redirect('/perfil/login');
+        return $this->_helper->redirector->gotoSimple('login','perfil');
     }
 
 

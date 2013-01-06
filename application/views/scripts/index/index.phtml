@@ -11,21 +11,24 @@
 //        })
         
         $("a").click(function(evento){
-            $("#vistaCarga").show(1000);
+            $("#vistaCarga").show("fast");
         })
     })
 </script>
 
-<div id="menu" style="background-color: #c7954b; padding: 2px; font-weight: bold">
+<div id="menu" style="background-color: #4b84c7; padding: 2px; font-weight: bold">
     <ul>
-        <li><a href="/reporte/buscar" target="vista" id="abrir">Abrir Reportes</a></li>
-        <li><a href="/reporte/crear" target="vista" id="Crear">Crear Reportes</a></li>
+        <li><a href="<?php echo $this->url(array('controller'=>'reporte','action'=>'buscar')); ?>" target="vista">Abrir Reportes</a></li>
+        <li><a href="<?php echo $this->url(array('controller'=>'reporte','action'=>'crear')); ?>" target="vista">Crear Reportes</a></li>
+        
         <?php $auth = Zend_Auth::getInstance();
         if ($auth->hasIdentity()) : ?>
         <li>Perfil:<?php echo $auth->getIdentity(); ?> </li>
-        <li><a href="/perfil/logout" target="vista">Salir del Perfil</a></li>
+        <li><a href="<?php echo $this->url(array('controller'=>'perfil','action'=>'logout')); ?>" target="vista">Salir del Perfil</a></li>
+        
         <?php else: ?>
-        <li><a href="/perfil/login" target="vista">Ingresar a Perfil</a></li>
+        <li><a href="<?php echo $this->url(array('controller'=>'perfil','action'=>'login')); ?>" target="vista">Ingresar a Perfil</a></li>
+        
         <?php endif; ?>
     </ul>
 </div>
@@ -34,7 +37,7 @@
 <table class="tabla_datos" width="100%" border="0" cellpadding="1" cellspacing="1">
     <tr height=300px" valign="top">
         <td height="100%" style="height:100%;" colspan="3">
-        <iframe name="vista" src="" width="100%" height="100%">No</iframe>
+        <iframe name="vista" src="" width="100%" height="100%"></iframe>
         </td>
     </tr>
 </table>
