@@ -1,26 +1,21 @@
-<div> 
-    <form action="<?php echo $this->url(array('controller'=>'reporte','action'=>'usar')); ?>" method="post">
-        <table id="dg_detalle2" class="tabla_datos" width="100%" height="80%" cellpadding="1" cellspacing="1">
-            <thead>
-                <tr>
-                    <th class="cabecera">Nombre del Reporte: <?php echo $this->reporte->Reporte_nombre; ?></th>
-                    <th class="cabecera">Nombre del Solicitante: <?php echo $this->reporte->Reporte_solicitante; ?></th>
-                    <th class="cabecera">Fecha de Creación: <?php echo $this->reporte->Reporte_fecha; ?></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="contenido" colspan="3" align="center">AQUÍ VA LO QUE FALTA</td>
-                </tr>        
-            </tbody>
-            <tfoot>
-                <tr>
-                </tr>
-            </tfoot>
-        </table>        
-        <div style="padding-top: 10px">
-        <input type="submit" name="editar" value="Editar" style="margin-left: 45%"/>
-        <input type="button" name="descargar" value="Descargar" style="margin-left: 10px"/>
+<div>
+    <form action="<?php echo $this->url(array('controller'=>'reporte','action'=>'gestionar')); ?>" method="post">
+        <div style="border-top-left-radius: 10px; border-top-right-radius: 10px;margin-top: 20px;margin: 0px 20px;text-align: center;background-color: #bbd4e1">
+            <h3 style="text-align: right;padding: 10px">Mostrando Reporte N° <?php echo $this->reporte->Reporte_id; ?></h3>
+            <span style="font-weight: bold">Nombre del Reporte: </span><?php echo $this->reporte->Reporte_nombre; ?>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="font-weight: bold">Nombre del solicitante: </span><?php echo $this->reporte->Reporte_solicitante; ?>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="font-weight: bold">Fecha de creación: </span><?php echo $this->reporte->Reporte_fecha; ?>
+        </div>
+        <div style="border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;margin-bottom: 20px;margin: 0px 20px;font-size: large; text-align: center;background-color: #bbd4e1">
+            <br/>
+            Aquí va lo que falta!
+            <br/>
+        </div>
+        <div style="padding-top: 20px;text-align: center">
+        <input type="submit" name="editar" value="Editar"/>
+        <input type="button" name="descargar" value="Descargar"/>
         <input type="hidden" name="reporte_id" value="<?php echo $this->reporte->Reporte_id; ?>"/>
         </div>
     </form>

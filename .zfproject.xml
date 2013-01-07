@@ -24,6 +24,7 @@
           <actionMethod actionName="gestionar"/>
           <actionMethod actionName="usar"/>
           <actionMethod actionName="eliminar"/>
+          <actionMethod actionName="descarga"/>
         </controllerFile>
         <controllerFile controllerName="Perfil">
           <actionMethod actionName="index"/>
@@ -98,6 +99,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Perfil">
             <viewScriptFile forActionName="logout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Reporte">
+            <viewScriptFile forActionName="descarga"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
