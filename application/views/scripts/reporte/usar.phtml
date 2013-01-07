@@ -1,5 +1,27 @@
-<div>    
-    <h2>Nombre del Reporte: </h2><p><b><?php echo $this->reporte->Reporte_nombre; ?></b></p>
-    <h2>Nombre del Solicitante: </h2><p><b><?php echo $this->reporte->Reporte_solicitante; ?></b></p>
-    <h2>Fecha de Creación: </h2><p><b><?php echo $this->reporte->Reporte_fecha; ?></b></p>
+<div> 
+    <form action="<?php echo $this->url(array('controller'=>'reporte','action'=>'usar')); ?>" method="post">
+        <table id="dg_detalle2" class="tabla_datos" width="100%" height="80%" cellpadding="1" cellspacing="1">
+            <thead>
+                <tr>
+                    <th class="cabecera">Nombre del Reporte: <?php echo $this->reporte->Reporte_nombre; ?></th>
+                    <th class="cabecera">Nombre del Solicitante: <?php echo $this->reporte->Reporte_solicitante; ?></th>
+                    <th class="cabecera">Fecha de Creación: <?php echo $this->reporte->Reporte_fecha; ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="contenido" colspan="3" align="center">AQUÍ VA LO QUE FALTA</td>
+                </tr>        
+            </tbody>
+            <tfoot>
+                <tr>
+                </tr>
+            </tfoot>
+        </table>        
+        <div style="padding-top: 10px">
+        <input type="submit" name="editar" value="Editar" style="margin-left: 45%"/>
+        <input type="button" name="descargar" value="Descargar" style="margin-left: 10px"/>
+        <input type="hidden" name="reporte_id" value="<?php echo $this->reporte->Reporte_id; ?>"/>
+        </div>
+    </form>
 </div>

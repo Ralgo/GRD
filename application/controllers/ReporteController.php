@@ -20,6 +20,7 @@ class ReporteController extends Zend_Controller_Action
     public function buscarAction()
     {
         // action body
+        //$this->_helper->layout->disableLayout();
         //Obteniendo los datos de la sesión actual
         //Asumo que debe haber una mejor manera de obtener el ID
         //pero por ahora solo utilizo el username (Identidad) de Zend_Auth.
@@ -27,12 +28,12 @@ class ReporteController extends Zend_Controller_Action
         $username = $auth->getIdentity();
         //Obteniendo la lista de perfiles completa y procedemos a obtener
         //el ID del user actual.
-        $modelPerfil= new Application_Model_DbTable_Perfil();
-        $this->view->idUserActual = $modelPerfil->obtenerPerfilID($username);
+        $perfiles= new Application_Model_DbTable_Perfil();
+        $this->view->idUserActual = $perfiles->obtenerPerfilID($username);
         
         //Obteniendo la lista de reportes completa.
-        $modelReporte = new Application_Model_DbTable_Reporte();
-        $this->view->reportes = $modelReporte->obtenerTodosReportes();
+        $reportes = new Application_Model_DbTable_Reporte();
+        $this->view->reportes = $reportes->obtenerTodosReportes();
         
     }
 
@@ -44,8 +45,8 @@ class ReporteController extends Zend_Controller_Action
             //echo "vienen datos";
             if ( $form->isValid($this->_getAllParams() ) )
             {
-                $model = new Application_Model_DbTable_Reporte();
-                $model->guardarReporte($form->getValues() );
+                $reportes = new Application_Model_DbTable_Reporte();
+                $reportes->guardarReporte($form->getValues() );
                 return $this->_helper->redirector->gotoSimple('buscar','reporte');
             }
         }
@@ -55,34 +56,48 @@ class ReporteController extends Zend_Controller_Action
     public function searchAction()
     {
         // action body
-        $reporte = new Application_Model_DbTable_GrdReporte();
-        $this->view->reporte = $reporte->obtenerDatos();
+        $reportes = new Application_Model_DbTable_GrdReporte();
+        $this->view->reporte = $reportes->obtenerDatos();
     }
 
     public function gestionarAction()
     {
-        // action body
+        // action body        
+        $reportes = new Application_Model_DbTable_Reporte();
+        $this->view->reportes = $reportes->obtenerReporte($this->_getParam('reporte_id'));
     }
 
     public function usarAction()
     {
         // action body
-//        if (!$this->_hasParam('reporte_id')){
-//            return $this->_redirect($this->url(array('controller'=>'reporte','action'=>'buscar')));
-//        }
-//        else{
-            $model = new Application_Model_DbTable_Reporte();
-            $reporte = $model->obtenerReporte($this->_getParam('reporte_id'));
-//        }
-        
+        $reportes = new Application_Model_DbTable_Reporte();
+        $reporte = $reportes->obtenerReporte($this->_getParam('reporte_id'));
         $this->view->reporte = $reporte;
         
+        if($this->getRequest()->isPost()){
+            $valor = $this->getRequest()->getPost('editar');
+            if($valor != 'Editar'){
+                $this->_helper->redirector->gotoSimple('usar','reporte');
+            }
+        }
     }
 
     public function eliminarAction()
     {
-        // action body
-        
-    }
+        // action body        
+        if($this->getRequest()->isPost()){
+            $valor = $this->getRequest()->getPost('borrar');
+            if($valor == 'Si'){    
+                $reporte_id = $this->_getParam('reporte_id');
+                $reportes = new Application_Model_DbTable_Reporte();
+                $reportes->eliminarReporte($reporte_id);
+            }
+            $this->_helper->redirector->gotoSimple('buscar','reporte');
+        }
+        else{
+            $reporte_id = $this->_getParam('reporte_id', 0);
+            $reportes = new Application_Model_DbTable_Reporte();
+            $this->view->reporte = $reportes->obtenerReporte($reporte_id);
+        }
+     }            
 }
-

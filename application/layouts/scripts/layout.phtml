@@ -8,6 +8,26 @@
         <script src="/js/jquery-1.7.1.min.js" type="text/javascript"></script>
     </head>
     <body style="margin: 0px;">
+    
+        <script language="javascript">
+            function crearDataGrid()
+            {
+                {
+                    var objTab = document.getElementById("dg_detalle2");
+                    dg = new DataGrid(objTab,
+                    {
+                        rowOver         : true,
+                        rowSelect       : true,
+                        rowMultiSelect  : false
+                        //onChangeSelect : verDetalle,
+                        //sortColumn	   : Array("N","S","N","N","N","N","N","N","N")
+                        }
+                    );
+                        var d = dg.getSelectedRow;
+                    }
+            }
+            window.onload = crearDataGrid;
+        </script>
         <?php echo $this->layout()->content; ?>
     </body>
 </html>

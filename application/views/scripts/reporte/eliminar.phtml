@@ -1,14 +1,10 @@
 <div>
-<table>
-    <p align="center">¿Está seguro que desea borrar el siguiente reporte?</p>
-    <p align="center"><b><?php echo $this->model['reporte_nom']; ?></b></p>
-    
-    <form action="/reporte/eliminar" method="post">
-        <div>
-            <input type="hidden" name="reporte_id" value="<?php echo $this->model['reporte_id']; ?>"/>
-            <input type="submit" name="eliminar" value="Si" />
-            <input type="submit" name="eliminar" value="No" />
-        </div>        
+    <form action="<?php echo $this->url(array('controller'=>'reporte','action'=>'eliminar')); ?>" method="post">
+        <p>Está seguro que desea borrar el reporte: <?php echo $this->reporte->Reporte_nombre; ?></p>
+        <div style="padding: 10px 20px">
+            <input type="submit" name="borrar" value="Si"/>
+            <input type="submit" name="borrar" value="No"/>
+            <input type="hidden" name="reporte_id" value="<?php echo $this->reporte->Reporte_id; ?>"/>
+        </div>
     </form>
-</table>
 </div>

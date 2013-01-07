@@ -37,5 +37,11 @@ class Application_Model_DbTable_Reporte extends Zend_Db_Table_Abstract
         return $reporte;
         
     }
+    
+    public function eliminarReporte($reporte_id){
+                
+        $this->delete('reporte_id ='. (int)$reporte_id);
+        
+    }
 
 }
