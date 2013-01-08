@@ -61,43 +61,63 @@ class ReporteController extends Zend_Controller_Action
 
     public function gestionarAction()
     {
-        // action body        
-                $reportes = new Application_Model_DbTable_Reporte();
-                $this->view->reporte = $reportes->obtenerReporte($this->_getParam('reporte_id'));
+        // action body
+        if($this->getRequest()->isPost()){
+            $value = $this->_getParam('submitButton');
+            if($value == 'Grabar'){
+                //Do something bitch!
+            }
+            else if($value == 'Cancelar') {
+                $this->_helper->redirector->gotoSimple('buscar','reporte');                
+            }
+        }
+        $reporte_id = $this->_getParam('reporte_id', 0);
+        $reportes = new Application_Model_DbTable_Reporte();
+        $this->view->reporte = $reportes->obtenerReporte($reporte_id);
+        $tablas = new Application_Model_DbTable_Tablas();
+        $this->view->tablas = $tablas->obtenerTodoTablas();
     }
 
     public function usarAction()
     {
         // action body
-                $reportes = new Application_Model_DbTable_Reporte();
-                $reporte = $reportes->obtenerReporte($this->_getParam('reporte_id'));
-                $this->view->reporte = $reporte;
+        if($this->getRequest()->isPost()){
+            $valor = $this->getRequest()->getPost('submitButton');
+            if($valor == 'Editar'){
+                $url = array('controller'=>'reporte','action'=>'gestionar','reporte_id'=>$this->_getParam('reporte_id'));
+                $this->_helper->redirector->gotoRoute($url);
+            }
+            else if($valor == 'Volver'){
+                $this->_helper->redirector->gotoSimple('buscar','reporte');
+            }
+            else if($valor == 'Descargar'){
                 
-                if($this->getRequest()->isPost()){
-                    $valor = $this->getRequest()->getPost('editar');
-                    if($valor != 'Editar'){
-                        $this->_helper->redirector->gotoSimple('usar','reporte');
-                    }
-                }
+            }
+        }
+        else{
+            $reporte_id = $this->_getParam('reporte_id', 0);
+            $reportes = new Application_Model_DbTable_Reporte();
+            $this->view->reporte = $reportes->obtenerReporte($reporte_id);
+        }
     }
     
     public function eliminarAction()
     {
         // action body        
-                if($this->getRequest()->isPost()){
-                    $valor = $this->getRequest()->getPost('borrar');
-                    if($valor == 'Si'){    
-                        $reporte_id = $this->_getParam('reporte_id');
-                        $reportes = new Application_Model_DbTable_Reporte();
-                        $reportes->eliminarReporte($reporte_id);
-                    }
-                    $this->_helper->redirector->gotoSimple('buscar','reporte');
-                }
-                else{
-                    $reporte_id = $this->_getParam('reporte_id', 0);
-                    $reportes = new Application_Model_DbTable_Reporte();
-                    $this->view->reporte = $reportes->obtenerReporte($reporte_id);
-                }
+        if($this->getRequest()->isPost()){
+            $valor = $this->getRequest()->getPost('borrar');
+            if($valor == 'Si'){
+                $reporte_id = $this->_getParam('reporte_id');
+                $reportes = new Application_Model_DbTable_Reporte();
+                $reportes->eliminarReporte($reporte_id);
+            }
+            $this->_helper->redirector->gotoSimple('buscar','reporte');
+         }
+         else{
+             $reporte_id = $this->_getParam('reporte_id', 0);
+             $reportes = new Application_Model_DbTable_Reporte();
+             $this->view->reporte = $reportes->obtenerReporte($reporte_id);
+         }
     }
 
     public function descargaAction()

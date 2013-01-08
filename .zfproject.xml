@@ -43,6 +43,7 @@
           <dbTableFile dbTableName="Reporte"/>
           <dbTableFile dbTableName="GrdReporte"/>
           <dbTableFile dbTableName="Perfil"/>
+          <dbTableFile dbTableName="Tablas"/>
         </dbTableDirectory>
         <modelFile modelName="Perfil"/>
       </modelsDirectory>
