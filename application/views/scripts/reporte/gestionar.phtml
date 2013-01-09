@@ -1,3 +1,9 @@
+<script>
+$(document).ready(function(){
+    $("#selectTablas").click()
+})
+</script>
+
 <form action="<?php $this->url(array('controller'=>'reporte','action'=>'gestionar')); ?>" method="post">
     <div class="layoutTitulo">
         <h3>Editando Reporte N° <?php echo $this->reporte->Reporte_id; ?></h3>
@@ -10,15 +16,16 @@
         </div>
     </div>
     <div class="layoutMedioIzq">
-        <select name="hola">
-            <option>Tabla 1</option>
-            <option>Tabla 2</option>
-            <option>Tabla 3</option>
+        <select id="selectTablas" name="tablas">
+            <?php foreach ($this->tablas as $tablas):?>
+            <option value="<?php echo $tablas->Tablas_id; ?>"><?php echo $tablas->Tablas_nombre; ?></option>
+            <?php endforeach; ?>
         </select>
+        <br/>
         <select multiple name="campos">
-            <option>Campo1</option>
-            <option>Campo2</option>
-            <option>Campo3</option>
+            <?php foreach ($this->tablas as $tablas): ?>
+            <option><?php ;?></option>
+            <?php endforeach; ?>
         </select>
     </div>
     <div class="layoutMedioDer">
