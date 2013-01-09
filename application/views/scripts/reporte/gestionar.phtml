@@ -1,25 +1,27 @@
 <form action="<?php $this->url(array('controller'=>'reporte','action'=>'gestionar')); ?>" method="post">
-    <div style="border-top-left-radius: 10px; border-top-right-radius: 10px;margin-top: 20px; margin: 0px 2%;text-align: center;background-color: #bbd4e1">
-        <h3 style="text-align: right;padding: 10px">Editando Reporte N° <?php echo $this->reporte->Reporte_id; ?></h3> 
-        <span style="font-weight: bold">Nombre del Reporte: </span><input size="30" type="text" name="nombre" value="<?php echo $this->reporte->Reporte_nombre; ?>">
-        <span style="font-weight: bold">Nombre del Solicitante: </span><input type="text" name="solicitante" value="<?php echo $this->reporte->Reporte_solicitante; ?>">
+    <div class="layoutTitulo">
+        <h3>Editando Reporte N° <?php echo $this->reporte->Reporte_id; ?></h3>
     </div>
-
-    <div style="height: 300px ; width: 26%;float: left ; border-bottom-left-radius: 10px;margin-bottom: 2%; margin-left: 2%; font-size: large; text-align: center;background-color: #bbd4e1">
+    <div class="layoutSuperior"></div>
+    <div class="layoutMedio">
+        <div class="layoutTexto">
+            <b>Nombre del Reporte: </b><input size="30" type="text" name="nombre" value="<?php echo $this->reporte->Reporte_nombre; ?>">
+            <b>Nombre del Solicitante: </b><input type="text" name="solicitante" value="<?php echo $this->reporte->Reporte_solicitante; ?>">
+        </div>
+    </div>
+    <div class="layoutMedioIzq">
         <select name="hola">
             <option>Tabla 1</option>
             <option>Tabla 2</option>
             <option>Tabla 3</option>
         </select>
-        <br/>
         <select multiple name="campos">
             <option>Campo1</option>
             <option>Campo2</option>
             <option>Campo3</option>
         </select>
     </div>
-    <div style="height: 300px ; width: 70% ; float: right ; border-bottom-right-radius: 10px;margin-bottom: 2%; margin-right: 2%; font-size: large; text-align: center;background-color: #bbd4e1">
-        <!--<iframe></iframe>-->
+    <div class="layoutMedioDer">
         <table class="tabla_datos">
             <thead>
             <tr>
@@ -37,7 +39,8 @@
             </tbody>
         </table>
     </div>
-    <div style="padding-top: 20px;text-align: center">
+    <div class="layoutInferior"></div>
+    <div class="layoutBotonera">
         <input type="submit" name="submitButton" value="Grabar"/>
         <input type="submit" name="submitButton" value="Cancelar"/>
     </div>

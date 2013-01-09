@@ -1,23 +1,25 @@
-<div>
-    <form action="<?php echo $this->url(array('controller'=>'reporte','action'=>'usar')); ?>" method="post">
-        <div style="border-top-left-radius: 10px; border-top-right-radius: 10px;margin-top: 20px; margin: 0px 2%;text-align: center;background-color: #bbd4e1">
-            <h3 style="text-align: right;padding: 2%">Mostrando Reporte N° <?php echo $this->reporte->Reporte_id; ?></h3>
-            <span style="font-weight: bold">Nombre del Reporte: </span><?php echo $this->reporte->Reporte_nombre; ?>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <span style="font-weight: bold">Nombre del solicitante: </span><?php echo $this->reporte->Reporte_solicitante; ?>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <span style="font-weight: bold">Fecha de creación: </span><?php echo $this->reporte->Reporte_fecha; ?>
+<form action="<?php echo $this->url(array('controller'=>'reporte','action'=>'usar')); ?>" method="post">
+    <div class="layoutTitulo">
+        <h3>Visualizando Reporte N° <?php echo $this->reporte->Reporte_id; ?></h3>
+    </div>
+    <div class="layoutSuperior"></div>
+    <div class="layoutMedio">
+        <div class="layoutTexto">
+             <b>Nombre del Reporte:</b> <?php echo $this->reporte->Reporte_nombre; ?>
+             &nbsp;&nbsp;&nbsp;
+             <b>Nombre del solicitante:</b> <?php echo $this->reporte->Reporte_solicitante; ?>
+             &nbsp;&nbsp;&nbsp;
+             <b>Fecha de creación:</b> <?php echo $this->reporte->Reporte_fecha; ?>
         </div>
-        <div style="height: 40% ; width: 96% ; border-bottom-left-radius: 10px ; border-bottom-right-radius: 10px ; margin-bottom: 2%; margin: 0 2%; font-size: large; text-align: center;background-color: #bbd4e1">
-            <br/>
-            Aquí va lo que falta!
-            <br/>
-        </div>
-        <div style="padding-top: 20px;text-align: center">
+    </div>
+    <div class="layoutMedio">
+        Aquí va lo que falta!
+    </div>
+    <div class="layoutInferior"></div>
+    <div class="layoutBotonera">
         <input type="submit" name="descargar" value="Descargar"/>
         <input type="submit" name="submitButton" value="Editar"/>
         <input type="submit" name="submitButton" value="Volver" />
         <input type="hidden" name="reporte_id" value="<?php echo $this->reporte->Reporte_id; ?>"/>
-        </div>
-    </form>
-</div>
+    </div>
+</form>
