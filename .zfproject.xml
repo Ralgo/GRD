@@ -44,6 +44,7 @@
           <dbTableFile dbTableName="GrdReporte"/>
           <dbTableFile dbTableName="Perfil"/>
           <dbTableFile dbTableName="Tablas"/>
+          <dbTableFile dbTableName="Campo"/>
         </dbTableDirectory>
         <modelFile modelName="Perfil"/>
       </modelsDirectory>

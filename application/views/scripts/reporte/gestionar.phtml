@@ -23,25 +23,40 @@ $(document).ready(function(){
         </select>
         <br/>
         <select multiple name="campos">
+            <option>Esto es un campo</option>
+            <option>Esto es otro campo</option>
             <?php foreach ($this->tablas as $tablas): ?>
             <option><?php ;?></option>
             <?php endforeach; ?>
         </select>
+        <br/>
+        <input type="button" value="<<"/>
+        <input type="button" value=">>"/>
     </div>
     <div class="layoutMedioDer">
-        <table class="tabla_datos">
+        <table class="tabla_datos" width="100%" cellpadding="1" cellspacing="1">
             <thead>
             <tr>
-                <th>Cabecera 1</th>
-                <th>Cabecera 2</th>
-                <th>Cabecera 3</th>
+                <th>Campos 1</th>
+                <th>Campos 2</th>
+                <th>Campos 3</th>
             </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>contenido</td>
-                    <td>contenido</td>
-                    <td>contenido</td>
+                    <td>Contenido</td>
+                    <td>Contenido</td>
+                    <td>Contenido</td>
+                </tr>
+                <tr>
+                    <td>Contenido</td>
+                    <td>Contenido</td>
+                    <td>Contenido</td>
+                </tr>
+                <tr>
+                    <td>Contenido</td>
+                    <td>Contenido</td>
+                    <td>Contenido</td>
                 </tr>
             </tbody>
         </table>

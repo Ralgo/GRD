@@ -77,15 +77,15 @@ class ReporteController extends Zend_Controller_Action
         $tablas = new Application_Model_DbTable_Tablas();
         $this->view->tablas = $tablas->obtenerTodoTablas();
         
-        $db = Zend_Db::factory('PDO_MYSQL',
-                array(
-                    'adapterNamespace' => Zend_Db_Adapter,
-                    'dbname' => 'GRD',
-                    'host' => 'localhost',
-                    'username' => 'cberoiza',
-                    'password' => '12345'
-                    )
-        );
+//        $db = Zend_Db::factory('PDO_MYSQL',
+//                array(
+//                    'adapterNamespace' => Zend_Db_Adapter,
+//                    'dbname' => 'GRD',
+//                    'host' => 'localhost',
+//                    'username' => 'cberoiza',
+//                    'password' => '12345'
+//                    )
+//        );
     }
 
     public function usarAction()
