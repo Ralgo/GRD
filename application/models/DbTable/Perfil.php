@@ -3,8 +3,8 @@
 class Application_Model_DbTable_Perfil extends Zend_Db_Table_Abstract
 {
 
-    protected $_name = 'GRD_Perfil';
-    protected $_primary = 'Perfil_id';
+    protected $_name = 'GRD_PERFIL';
+    protected $_primary = 'PERFIL_ID';
     protected $_adapter = 'db_mysql';
     
     public function obtenerTodosPerfiles()
@@ -17,8 +17,8 @@ class Application_Model_DbTable_Perfil extends Zend_Db_Table_Abstract
         $perfiles = $this->fetchAll();
         
         foreach ($perfiles as $perfil){
-            if($perfil->Perfil_nombre == $username){
-                return $perfil->Perfil_id;
+            if($perfil->PERFIL_NOMBRE == $username){
+                return $perfil->PERFIL_ID;
                 break;
             }
         }

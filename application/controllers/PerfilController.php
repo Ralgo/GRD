@@ -22,13 +22,13 @@ class PerfilController extends Zend_Controller_Action
                     if ($form->isValid($this->_getAllParams())){
                         $authAdapter = new Zend_Auth_Adapter_DbTable();
                         $authAdapter
-                                ->setTableName('GRD_Perfil')
-                                ->setIdentityColumn('Perfil_nombre')
-                                ->setCredentialColumn('Perfil_password');
+                                ->setTableName('GRD_USUARIO')
+                                ->setIdentityColumn('USUARIO_RUT')
+                                ->setCredentialColumn('USUARIO_SESSION');
                         
                         $authAdapter
-                                ->setIdentity($form->getValue('Perfil_nombre'))
-                                ->setCredential(sha1($form->getValue('Perfil_password')));
+                                ->setIdentity($form->getValue('USUARIO_RUT'))
+                                ->setCredential($form->getValue('USUARIO_SESSION'));
                         
                         $auth = Zend_Auth::getInstance();
                         
@@ -39,9 +39,8 @@ class PerfilController extends Zend_Controller_Action
                             
                         }
                         else{
-                            $form->Perfil_nombre->addErrorMessage('Datos Incorrectos');
-                        }
-                                
+                            $form->USUARIO_SESSION->addErrorMessage('Datos Incorrectos');
+                        }                                
                     }
                 }
                 
@@ -54,6 +53,4 @@ class PerfilController extends Zend_Controller_Action
         Zend_Auth::getInstance()->clearIdentity();
         return $this->_helper->redirector->gotoSimple('login','perfil');
     }
-
-
 }

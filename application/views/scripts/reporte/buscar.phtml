@@ -14,14 +14,14 @@
          if(count($this->reportes)) :
          foreach ($this->reportes as $reporte) :
          //Aquí hacemos el filtro para mostrar solo los reportes correspondientes al usuario
-         if($reporte->Perfil_id == $this->idUserActual):
+         if($reporte->PERFIL_ID == $this->idUserActual):
          ?>
             <tr>             
-                <td class="contenido" align="left"><?php echo $reporte->Reporte_nombre; ?></td>
-                <td class="contenido" align="center"><?php echo $reporte->Reporte_fecha; ?></td>
-                <td class="contenido" align="center"><?php echo $reporte->Reporte_solicitante; ?></td>
-                <td class="contenido" align="center"><a href="<?php echo $this->url(array('controller'=>'reporte','action'=>'usar','reporte_id'=>$reporte->Reporte_id)); ?>">Ver</a></td>
-                <td class="contenido" align="center"><a href="<?php echo $this->url(array('controller'=>'reporte','action'=>'eliminar','reporte_id'=>$reporte->Reporte_id)); ?>">Eliminar</a></td>
+                <td class="contenido" align="left"><?php echo $reporte->REPORTES_NOMBRE; ?></td>
+                <td class="contenido" align="center"><?php echo $reporte->REPORTES_FECHA; ?></td>
+                <td class="contenido" align="center"><?php echo $reporte->REPORTES_SOLICITANTE; ?></td>
+                <td class="contenido" align="center"><a href="<?php echo $this->url(array('controller'=>'reporte','action'=>'usar','reporte_id'=>$reporte->REPORTES_ID)); ?>">Ver</a></td>
+                <td class="contenido" align="center"><a href="<?php echo $this->url(array('controller'=>'reporte','action'=>'eliminar','reporte_id'=>$reporte->REPORTES_ID)); ?>">Eliminar</a></td>
             </tr>
          
          <?php 

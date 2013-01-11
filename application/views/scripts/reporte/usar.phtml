@@ -1,15 +1,15 @@
 <form action="<?php echo $this->url(array('controller'=>'reporte','action'=>'usar')); ?>" method="post">
     <div class="layoutTitulo">
-        <h3>Visualizando Reporte N° <?php echo $this->reporte->Reporte_id; ?></h3>
+        <h3>Visualizando Reporte N° <?php echo $this->reporte->REPORTES_ID; ?></h3>
     </div>
     <div class="layoutSuperior"></div>
     <div class="layoutMedio">
         <div class="layoutTexto">
-             <b>Nombre del Reporte:</b> <?php echo $this->reporte->Reporte_nombre; ?>
+             <b>Nombre del Reporte:</b> <?php echo $this->reporte->REPORTES_NOMBRE; ?>
              &nbsp;&nbsp;&nbsp;
-             <b>Nombre del solicitante:</b> <?php echo $this->reporte->Reporte_solicitante; ?>
+             <b>Nombre del solicitante:</b> <?php echo $this->reporte->REPORTES_SOLICITANTE; ?>
              &nbsp;&nbsp;&nbsp;
-             <b>Fecha de creación:</b> <?php echo $this->reporte->Reporte_fecha; ?>
+             <b>Fecha de creación:</b> <?php echo $this->reporte->REPORTES_FECHA; ?>
         </div>
     </div>
     <div class="layoutMedio">
@@ -20,6 +20,6 @@
         <input type="submit" name="descargar" value="Descargar"/>
         <input type="submit" name="submitButton" value="Editar"/>
         <input type="submit" name="submitButton" value="Volver" />
-        <input type="hidden" name="reporte_id" value="<?php echo $this->reporte->Reporte_id; ?>"/>
+        <input type="hidden" name="reporte_id" value="<?php echo $this->reporte->REPORTES_ID; ?>"/>
     </div>
 </form>

@@ -7,15 +7,15 @@ class Application_Form_Login extends Zend_Form
     {        
         /* Form Elements & Other Definitions Here ... */
         $this->addElement(
-                'text','Perfil_nombre', array(
-                    'label'=>'Usuario',
+                'text','USUARIO_RUT', array(
+                    'label'=>'Rut de Usuario',
                     'required'=>true
                 )
         );
         
         $this->addElement(
-                'password', 'Perfil_password', array(
-                    'label'=>'Contraseña',
+                'password', 'USUARIO_SESSION', array(
+                    'label'=>'Sesión',
                     'required'=>true
                 )
         );
@@ -26,5 +26,4 @@ class Application_Form_Login extends Zend_Form
                 )
         );        
     }
-
 }

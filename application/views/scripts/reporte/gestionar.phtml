@@ -1,66 +1,73 @@
 <script>
 $(document).ready(function(){
-    $("#selectTablas").click()
+    $("#selectTablas").change(function(){
+        var tablas_id = $(this).val();
+        var ajaxUrl = "/reporte/select-multiple-ajax";
+        $("#divCampos").load(ajaxUrl,{id : tablas_id});
+    })
 })
+
+$(document).ready(function(){
+    $("#agregar").click(function(){
+        var campos_id = $("#selectCampos").val();
+        var tablas_id = $("#selectTablas").val();
+        var reporte_id = <?php echo $this->reporte->REPORTES_ID; ?>;
+
+        var ajaxUrl = "/reporte/grabar-reporte-ajax";
+
+        $("#tablas").load(ajaxUrl,{idcampo: campos_id, idtabla: tablas_id, idreporte: reporte_id});
+     })
+})
+
 </script>
 
 <form action="<?php $this->url(array('controller'=>'reporte','action'=>'gestionar')); ?>" method="post">
+    
     <div class="layoutTitulo">
-        <h3>Editando Reporte N° <?php echo $this->reporte->Reporte_id; ?></h3>
+        <h3>Editando Reporte N° <?php echo $this->reporte->REPORTES_ID; ?></h3>
     </div>
+    
     <div class="layoutSuperior"></div>
     <div class="layoutMedio">
         <div class="layoutTexto">
-            <b>Nombre del Reporte: </b><input size="30" type="text" name="nombre" value="<?php echo $this->reporte->Reporte_nombre; ?>">
-            <b>Nombre del Solicitante: </b><input type="text" name="solicitante" value="<?php echo $this->reporte->Reporte_solicitante; ?>">
+            <b>Nombre del Reporte: </b><input size="30" type="text" name="nombre" value="<?php echo $this->reporte->REPORTES_NOMBRE; ?>">
+            <b>Nombre del Solicitante: </b><input type="text" name="solicitante" value="<?php echo $this->reporte->REPORTES_SOLICITANTE; ?>">
         </div>
     </div>
+    
     <div class="layoutMedioIzq">
-        <select id="selectTablas" name="tablas">
+    
+        <select id="selectTablas">
             <?php foreach ($this->tablas as $tablas):?>
-            <option value="<?php echo $tablas->Tablas_id; ?>"><?php echo $tablas->Tablas_nombre; ?></option>
+                <?php foreach ($this->relacion as $relacion):?>
+                    <?php if($relacion->TABLAS_ID == $tablas->TABLAS_ID):?>
+                        <option value="<?php echo $tablas->TABLAS_ID; ?>"><?php echo $tablas->TABLAS_NOMBRE; ?></option>
+                    <?php endif;?>
+                <?php endforeach; ?>
             <?php endforeach; ?>
         </select>
         <br/>
-        <select multiple name="campos">
-            <option>Esto es un campo</option>
-            <option>Esto es otro campo</option>
-            <?php foreach ($this->tablas as $tablas): ?>
-            <option><?php ;?></option>
-            <?php endforeach; ?>
-        </select>
+        
+        <div id="divCampos">
+            
+        </div>
+        
         <br/>
-        <input type="button" value="<<"/>
-        <input type="button" value=">>"/>
+        <input id="quitar" type="button" value="<<"/>
+        <input id="agregar" type="button" value=">>"/>
+    
     </div>
-    <div class="layoutMedioDer">
-        <table class="tabla_datos" width="100%" cellpadding="1" cellspacing="1">
-            <thead>
-            <tr>
-                <th>Campos 1</th>
-                <th>Campos 2</th>
-                <th>Campos 3</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Contenido</td>
-                    <td>Contenido</td>
-                    <td>Contenido</td>
-                </tr>
-                <tr>
-                    <td>Contenido</td>
-                    <td>Contenido</td>
-                    <td>Contenido</td>
-                </tr>
-                <tr>
-                    <td>Contenido</td>
-                    <td>Contenido</td>
-                    <td>Contenido</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <div id="tablas"></div>
+<!--    <div class="layoutMedioDer">
+        <table class="tabla_datos" width="98%" height="100%" border="0" cellpadding="1" cellspacing="1">
+            <tr valign="top" height="100%">
+            <td width="100%" height="100%" style="height: 100%">
+                <iframe id="iframeReporte" src="/reporte/tabla-reporte/" width="100%" height="100%"></iframe>
+            </td>
+        </tr>
+        </table> 
+    </div>-->
+    
     <div class="layoutInferior"></div>
     <div class="layoutBotonera">
         <input type="submit" name="submitButton" value="Grabar"/>

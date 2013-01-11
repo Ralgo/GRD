@@ -25,6 +25,10 @@
           <actionMethod actionName="usar"/>
           <actionMethod actionName="eliminar"/>
           <actionMethod actionName="descarga"/>
+          <actionMethod actionName="selectMultipleAjax"/>
+          <actionMethod actionName="enviarCampo"/>
+          <actionMethod actionName="tablaReporte"/>
+          <actionMethod actionName="grabarReporteAjax"/>
         </controllerFile>
         <controllerFile controllerName="Perfil">
           <actionMethod actionName="index"/>
@@ -45,6 +49,10 @@
           <dbTableFile dbTableName="Perfil"/>
           <dbTableFile dbTableName="Tablas"/>
           <dbTableFile dbTableName="Campo"/>
+          <dbTableFile dbTableName="Usuarios"/>
+          <dbTableFile dbTableName="RelacionPT"/>
+          <dbTableFile dbTableName="TablasReportes"/>
+          <dbTableFile dbTableName="CamposReportes"/>
         </dbTableDirectory>
         <modelFile modelName="Perfil"/>
       </modelsDirectory>
@@ -104,6 +112,18 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Reporte">
             <viewScriptFile forActionName="descarga"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Reporte">
+            <viewScriptFile forActionName="selectMultipleAjax"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Reporte">
+            <viewScriptFile forActionName="enviarCampo"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Reporte">
+            <viewScriptFile forActionName="tablaReporte"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Reporte">
+            <viewScriptFile forActionName="grabarReporteAjax"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

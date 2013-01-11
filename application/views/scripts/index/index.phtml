@@ -5,46 +5,6 @@
             $("#vista").show("normal");
         })
     });
-    
-    $(document).ready(function(){
-        $("a").click(function(evento){
-            <?php $auth = Zend_Auth::getInstance();
-                if($auth->hasIdentity()){
-                    $sesion = 1;  
-                }
-                else{
-                    $sesion = 0;
-                }?>
-        
-            var sesion = <?php echo $sesion;?>;
-        
-            if(sesion==1){
-                $("#logout").css("display", "block")
-            }
-            else{
-                $("#logout").css("display", "none")
-            }    
-        })
-    });
-    
-    $(document).ready(function(){
-        <?php $auth1 = Zend_Auth::getInstance();
-                if($auth1->hasIdentity()){
-                    $sesion = 1;  
-                }
-                else{
-                    $sesion = 0;
-                }?>
-        
-            var sesion = <?php echo $sesion;?>;
-        
-            if(sesion==1){
-                $("#logout").css("display", "block")
-            }
-            else{
-                $("#logout").css("display", "none")
-            }
-    })
 </script>
 
 <div id="menu" style="font-weight: bold; background-color: #8ea3ae; padding-top: 10px; padding-bottom: 5px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px">
@@ -52,7 +12,7 @@
         <ul>
             <a href="<?php echo $this->url(array('controller'=>'reporte','action'=>'buscar')); ?>" target="vista">Abrir Reportes  </a>
             <a href="<?php echo $this->url(array('controller'=>'reporte','action'=>'crear')); ?>" target="vista">|  Crear Reportes</a>
-            <a id="logout" style="display: none" href="<?php echo $this->url(array('controller'=>'perfil','action'=>'logout')); ?>" target="vista">Salir Sesión</a>
+            <a href="<?php echo $this->url(array('controller'=>'perfil','action'=>'logout')); ?>" target="vista">|  Salir Sesión Reportes</a>
         </ul>
     </nav>
 </div>
