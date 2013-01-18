@@ -162,6 +162,7 @@ class ReporteController extends Zend_Controller_Action
         $this->_helper->viewRenderer->setNoRender();
 
         //Este es un arreglo si es que se seleccionan más opciones en el multioption box.
+        
         $campos_id = $this->getRequest()->getPost('idcampo');
         
         $reporte_id = $this->getRequest()->getPost('idreporte');
@@ -179,6 +180,8 @@ class ReporteController extends Zend_Controller_Action
         $dbTablasReportes = new Application_Model_DbTable_TablasReportes();
         $dbTablasReportes->grabarTabla($arrayTabla);
         
+        $idTablasReportes = $dbTablasReportes->ultimaInsercion();
+        
         
         $dbCamposReportes = new Application_Model_DbTable_CamposReportes();
         $dbCampos = new Application_Model_DbTable_Campo();
@@ -188,7 +191,7 @@ class ReporteController extends Zend_Controller_Action
             
             $array = array(
                 'CAMPOS_REPORTES_NOMBRE'=>$nombreCampo,
-                'TABLAS_REPORTES_ID'=>$tablas_id
+                'TABLAS_REPORTES_ID'=>$idTablasReportes
             );
             
             $dbCamposReportes->grabarCampo($array);
@@ -201,6 +204,8 @@ class ReporteController extends Zend_Controller_Action
         $dbReportes = new Application_Model_DbTable_Reporte();
         $dbTablasReportes = new Application_Model_DbTable_TablasReportes();
         $dbCamposReportes = new Application_Model_DbTable_CamposReportes();
+        
+        //Falta!!!, toy con sueño
         
         
     }
